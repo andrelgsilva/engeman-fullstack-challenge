@@ -96,16 +96,16 @@ export default function ImoveisPage() {
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-2xl font-bold text-gray-900">Imóveis disponíveis</h1>
+            <h1 className="text-2xl cursor-default font-bold text-gray-900">Imóveis disponíveis</h1>
             {data && (
-              <p className="text-sm text-gray-500 mt-1">
+              <p className="cursor-default text-sm text-gray-500 mt-1">
                 {data.totalElements} {data.totalElements === 1 ? 'imóvel encontrado' : 'imóveis encontrados'}
               </p>
             )}
           </div>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 border border-gray-300 rounded-lg px-4 py-2 text-sm hover:bg-gray-100 transition-colors"
+            className="flex items-center gap-2 cursor-pointer border border-gray-300 rounded-lg px-4 py-2 text-sm hover:bg-gray-100 transition-colors"
           >
             <SlidersHorizontal className="w-4 h-4" />
             Filtros

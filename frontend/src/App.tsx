@@ -4,10 +4,11 @@ import type { Role } from './types';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import ImoveisPage from './pages/imoveis/ImoveisPage';
+import ImovelDetailPage from './pages/imoveis/ImovelDetailPage';
 
 // Pages (vamos criar nas próximas tasks)
 
-// import ImovelDetailPage from './pages/imoveis/ImovelDetailPage';
+
 // import GestaoPage from './pages/gestao/GestaoPage';
 // import FavoritosPage from './pages/favoritos/FavoritosPage';
 
@@ -26,7 +27,7 @@ function AppRoutes() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/" element={<ImoveisPage />} />
-      <Route path="/imoveis/:id" element={<div>Detalhe do Imóvel</div>} />
+      <Route path="/imoveis/:id" element={<ImovelDetailPage />} />
       <Route
         path="/gestao"
         element={

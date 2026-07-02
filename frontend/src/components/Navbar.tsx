@@ -44,13 +44,13 @@ export default function Navbar() {
           )}
 
           {isAuthenticated ? (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 cursor-default">
               <span className="text-sm text-gray-500">
                 Olá, <span className="font-medium text-gray-700">{user?.name}</span>
               </span>
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 text-sm text-gray-600 hover:text-red-500 transition-colors"
+                className="flex items-center gap-1.5 cursor-pointer text-sm text-gray-600 hover:text-red-500 transition-colors"
               >
                 <LogOut className="w-4 h-4" />
                 Sair
