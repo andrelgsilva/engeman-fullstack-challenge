@@ -1,0 +1,5 @@
+# engeman-chall
+
+mvnw.cmd spring-boot:run
+
+npm run dev

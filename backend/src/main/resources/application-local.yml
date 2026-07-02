@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/engeman_imoveis
+    username: engeman_user
+    password: engeman123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: never
+
+jwt: 
+  secret: auqHh0TJo6JDXTO8ZwOXNfBysVsuWzylTS8d6b1h65w=
+  expiration: 86400000

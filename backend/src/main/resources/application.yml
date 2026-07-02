@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: imoveis
+
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}
+
+server:
+  port: 8080
