@@ -48,10 +48,20 @@ public class ImovelService {
     }
 
     public List<ImovelResponse> listAll() {
-        return imovelRepository.findAll()
-                .stream()
+        List<Imovel> imoveis = imovelRepository.findAll();
+        return imoveis.stream()
                 .map(ImovelResponse::new)
                 .toList();
+    }
+        public List<ImovelResponse> listGerenciados(User user) {
+        List<Imovel> imoveis = user.getRole() == Role.CORRETOR
+                ? imovelRepository.findByCorretorId(user.getId())
+                : imovelRepository.findAll();
+
+        return imoveis.stream()
+                .map(ImovelResponse::new)
+                .toList();
+        
     }
 
     public ImovelResponse findById(Long id) {

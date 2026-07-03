@@ -77,7 +77,8 @@ public class SecurityConfig {
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/auth/**").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/imoveis/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/imoveis", "/api/imoveis/buscar").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/imoveis/{id}").permitAll()
             .requestMatchers(HttpMethod.POST, "/api/**").authenticated()
             .requestMatchers(HttpMethod.PUT, "/api/**").authenticated()
             .requestMatchers(HttpMethod.PATCH, "/api/**").authenticated()

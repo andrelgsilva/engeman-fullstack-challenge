@@ -42,6 +42,13 @@ public class ImovelController {
         return ResponseEntity.ok(imovelService.listAll());
     }
 
+    // Gestão: ADMIN vê tudo, CORRETOR vê apenas os próprios imóveis (ativos e inativos)
+    @GetMapping("/gestao")
+    @PreAuthorize("hasAnyRole('ADMIN', 'CORRETOR')")
+    public ResponseEntity<List<ImovelResponse>> listarGestao(@AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(imovelService.listGerenciados(user));
+    }
+
     // Qualquer pessoa pode ver detalhes
     @GetMapping("/{id}")
     public ResponseEntity<ImovelResponse> findById(@PathVariable Long id) {

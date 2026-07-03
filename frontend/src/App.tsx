@@ -5,12 +5,12 @@ import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 import ImoveisPage from './pages/imoveis/ImoveisPage';
 import ImovelDetailPage from './pages/imoveis/ImovelDetailPage';
+import GestaoPage from './pages/gestao/GestaoPage';
+import FavoritosPage from './pages/favoritos/FavoritosPage';
 
 // Pages (vamos criar nas próximas tasks)
 
 
-// import GestaoPage from './pages/gestao/GestaoPage';
-// import FavoritosPage from './pages/favoritos/FavoritosPage';
 
 function PrivateRoute({ children, roles }: { children: React.ReactNode; roles?: Role[] }) {
   const { isAuthenticated, user } = useAuth();
@@ -32,7 +32,7 @@ function AppRoutes() {
         path="/gestao"
         element={
           <PrivateRoute roles={['ADMIN', 'CORRETOR']}>
-            <div>Gestão de Imóveis</div>
+            <GestaoPage />
           </PrivateRoute>
         }
       />
@@ -40,7 +40,7 @@ function AppRoutes() {
         path="/favoritos"
         element={
           <PrivateRoute roles={['CLIENTE']}>
-            <div>Favoritos</div>
+            <FavoritosPage />
           </PrivateRoute>
         }
       />

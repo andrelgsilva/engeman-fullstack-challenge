@@ -9,6 +9,12 @@ export const imovelService = {
     return response.data;
   },
 
+  // Lista os imóveis gerenciáveis pelo usuário logado (ADMIN vê todos, CORRETOR vê só os próprios)
+  listarGestao: async (): Promise<Imovel[]> => {
+    const response = await api.get<Imovel[]>('/api/imoveis/gestao');
+    return response.data;
+  },
+
   buscarPorId: async (id: number): Promise<Imovel> => {
     const response = await api.get<Imovel>(`/api/imoveis/${id}`);
     return response.data;

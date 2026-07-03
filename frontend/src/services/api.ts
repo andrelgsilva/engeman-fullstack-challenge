@@ -20,11 +20,25 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    const isAuthEndpoint = error.config?.url?.includes('/auth/login') || error.config?.url?.includes('/auth/register');
+
+    // 401 em rota autenticada = sessão expirada/token inválido → desloga.
+    // 401 em /auth/login ou /auth/register = credenciais erradas → deixa a tela tratar normalmente.
+    if (error.response?.status === 401 && !isAuthEndpoint) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       window.location.href = '/login';
     }
+
+    // 403: usuário autenticado mas sem permissão para a ação — não desloga,
+    // só garante uma mensagem amigável quando o backend não manda uma
+    if (error.response?.status === 403 && !error.response?.data?.message) {
+      error.response.data = {
+        ...error.response.data,
+        message: 'Você não tem permissão para realizar esta ação.',
+      };
+    }
+
     return Promise.reject(error);
   }
 );
