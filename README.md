@@ -160,7 +160,7 @@ engeman/
 ## Principais endpoints da API
 
 | Método | Rota | Acesso |
-|---|---|---|
+
 | `POST` | `/auth/register` | Público |
 | `POST` | `/auth/login` | Público |
 | `GET` | `/api/imoveis/buscar` | Público (filtros, paginação, ordenação) |
