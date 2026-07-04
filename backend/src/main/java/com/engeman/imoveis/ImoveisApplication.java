@@ -8,6 +8,7 @@ public class ImoveisApplication {
 
 	public static void main(String[] args) {
 		String url = System.getenv("SPRING_DATASOURCE_URL");
+		String jwt = System.getenv("JWT_SECRET");
 		System.out.println("### DEBUG SPRING_DATASOURCE_URL = [" + url + "]");
 		System.out.println("### DEBUG tamanho = " + (url == null ? "null" : url.length()));
 		SpringApplication.run(ImoveisApplication.class, args);
