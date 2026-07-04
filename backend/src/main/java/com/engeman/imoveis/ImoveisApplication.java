@@ -11,6 +11,7 @@ public class ImoveisApplication {
 		String jwt = System.getenv("JWT_SECRET");
 		System.out.println("### DEBUG SPRING_DATASOURCE_URL = [" + url + "]");
 		System.out.println("### DEBUG tamanho = " + (url == null ? "null" : url.length()));
+		System.out.println("### DEBUG JWT_SECRET = [" + jwt + "]");
 		SpringApplication.run(ImoveisApplication.class, args);
 	}
 }
