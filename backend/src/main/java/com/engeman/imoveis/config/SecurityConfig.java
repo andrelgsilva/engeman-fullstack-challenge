@@ -66,7 +66,10 @@ public class SecurityConfig {
     http
         .cors(cors -> cors.configurationSource(request -> {
             var config = new org.springframework.web.cors.CorsConfiguration();
-            config.setAllowedOrigins(java.util.List.of("http://localhost:5173"));
+            config.setAllowedOrigins(java.util.List.of(
+                "http://localhost:5173",
+                "https://engeman-frontend.onrender.com"
+            ));
             config.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
             config.setAllowedHeaders(java.util.List.of("*"));
             config.setAllowCredentials(true);
@@ -77,8 +80,7 @@ public class SecurityConfig {
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/auth/**").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/imoveis", "/api/imoveis/buscar").permitAll()
-            .requestMatchers(HttpMethod.GET, "/api/imoveis/{id}").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/imoveis/**").permitAll()
             .requestMatchers(HttpMethod.POST, "/api/**").authenticated()
             .requestMatchers(HttpMethod.PUT, "/api/**").authenticated()
             .requestMatchers(HttpMethod.PATCH, "/api/**").authenticated()
